@@ -1,13 +1,11 @@
 module pin()
 {
     color("Gold")linear_extrude(height = 2.5+3+6.10, center = true)offset(0.02)square(0.3,center=true);  
-        
 }
 
 module cover()
 {
     color("Black")linear_extrude(height = 2.5, center = true)offset(0.27)square(2,center=true);
-    
 }
 
 module goldPin()
@@ -30,4 +28,4 @@ module goldPinMulti(column,row)
     }
 }
 
-goldPinMulti(2,1);
+goldPinMulti(2,20);
