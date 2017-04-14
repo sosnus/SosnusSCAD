@@ -13,9 +13,11 @@ module rpiWholes()
 
 module raspberry()
 {
-    difference(){
-    
-        }
+        rpiMainPolygon =[[3,3],
+    [53,3],
+    [53,82],[3,82]
+    ];
+    /*
     rpiMainPolygon =[[0,3],[3,0],
     [53,0],[56,3],
     [56,82],[54,85],
@@ -25,8 +27,8 @@ module raspberry()
         translate([53,3])circle(3,$fn=20);
         translate([53,82])circle(3,$fn=20);
         translate([3,82])circle(3,$fn=20);
-    
-polygon(rpiMainPolygon);
+    */
+offset(3,$fn=20)polygon(rpiMainPolygon);
 }
 
 //color("DarkGreen")
