@@ -5,9 +5,9 @@ module lcd5inch()
 {
     dt=0.005;
     color("Navy")   linear_extrude(height = 2)    pcb();
-    color("Silver") linear_extrude(height = 4-dt) screen();
-    color("blue")   linear_extrude(height = 4)    ekran();
-    color("green") linear_extrude(height = 4+dt)  textScreen();
+    color("Silver") translate([0,0,2]) linear_extrude(height = 4-dt) screen();
+    color("blue")   linear_extrude(height = 6)    ekran();
+    color("green") linear_extrude(height = 6+dt)  textScreen();
 }
 
 module textScreen()
@@ -67,4 +67,4 @@ module lcdWholes()
         translate([118,2.75])circle(rpiWholesDrill,$fn=20);
 }
 
-lcd5inch();
+// lcd5inch();

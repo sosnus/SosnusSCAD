@@ -1,6 +1,6 @@
 module distance()
 {
-    color("Silver")linear_extrude(height=10, center=true) 
+    color("Silver")linear_extrude(height=10) 
     {
         difference()
         {
@@ -11,4 +11,4 @@ module distance()
     }
 }
 
-distance();
+//distance();
