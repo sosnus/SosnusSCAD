@@ -1,3 +1,5 @@
+//based on: https://botland.com.pl/img/art/inne/04466_9.jpg
+// https://botland.com.pl/wyswietlacze-raspberry-pi-32/7906-ekran-dotykowy-rezystancyjny-lcd-tft-5-800x480px-hdmi-usb-rev-21-dla-raspberry-pi-32b.html
 module lcd5inch()
 {
     rpiMainPolygon =
@@ -23,5 +25,5 @@ module lcdWholes()
         translate([118,86.75])circle(rpiWholesDrill,$fn=20);
         translate([118,2.75])circle(rpiWholesDrill,$fn=20);
 }
-// lcdWholes();
+
 lcd5inch();
