@@ -2,7 +2,7 @@
 include <../Goldpin/Goldpin.scad>
 module rpiHoles()
 {
-    dimRpiHoles=[[3.5,3.5],[3.5,61.5],[52.5,3.5],[52.5,62.5]];
+    dimRpiHoles=[[3.5,3.5],[3.5,61.5],[52.5,3.5],[52.5,61.5]];
         for (i=dimRpiHoles) 
             translate([i[0],i[1]])circle(r=1.4,$fn=20);
 }
