@@ -1,11 +1,20 @@
 // http://www.raspiworld.com/images/other/drawings/Raspberry-Pi-1-2-3-Model-B.jpg
-module rpiWholes()
+
+//before
+module rpdiWholes()
 {
     rpiWholesDrill = 1.4;
         translate([3.5,3.5])circle(rpiWholesDrill,$fn=20);
         translate([3.5,3.5+58])circle(rpiWholesDrill,$fn=20);
         translate([3.5+49,3.5])circle(rpiWholesDrill,$fn=20);
         translate([3.5+49,58+3.5])circle(rpiWholesDrill,$fn=20);
+}
+//after
+module rpiHoles()
+{
+    dimRpiHoles=[[3.5,3.5],[3.5,61.5],[52.5,3.5],[52.5,62.5]];
+        for (i=dimRpiHoles) 
+            translate([i[0],i[1]])circle(r=1.4,$fn=20);
 }
 
 module raspberryPcb()
@@ -16,7 +25,7 @@ module raspberryPcb()
         difference()
         {
             offset(3,$fn=20)polygon(rpiMainPolygon);
-            rpiWholes();
+            rpiHoles();
         }
     }
 }

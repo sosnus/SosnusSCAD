@@ -62,7 +62,6 @@ module lcdHoles()
     dimLcdHoles=[[3,2.75],[3,86.75],[118,86.75],[118,2.75]];
         for (i=dimLcdHoles) 
             translate([i[0],i[1]])circle(r=1.4,$fn=20);
-    
 }
 
 // lcd5inch();
