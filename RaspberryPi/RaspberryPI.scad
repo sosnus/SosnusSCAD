@@ -1,3 +1,4 @@
+// http://www.raspiworld.com/images/other/drawings/Raspberry-Pi-1-2-3-Model-B.jpg
 module rpiWholes()
 {
     rpiWholesDrill = 1.4;
@@ -9,20 +10,33 @@ module rpiWholes()
 
 module raspberryPcb()
 {
-    rpiMainPolygon =
-    [[3,3],[53,3],[53,82],[3,82]];
-            difference()
-            {
-offset(3,$fn=20)polygon(rpiMainPolygon);
-                // raspberry();
-                rpiWholes();
-            }
+    rpiMainPolygon = [[3,3],[53,3],[53,82],[3,82]];
+    color("DarkGreen")linear_extrude(height=2)
+    {
+        difference()
+        {
+            offset(3,$fn=20)polygon(rpiMainPolygon);
+            rpiWholes();
+        }
+    }
 }
 
 module rpi()
 {
-    color("DarkGreen")
-    {
-        linear_extrude(height=2)raspberryPcb();
-    }
+    raspberryPcb();
+    uc();
+    sd();
 }
+
+module uc()
+{
+     color("Black")translate([18,20,2])linear_extrude(height=2)square(size=14, center=false);
+}
+
+module sd()
+{
+     color("Gray")translate([21,0,-1.7])linear_extrude(height=1.7)square(size=14.6, center=false);
+     color("Maroon")translate([21,-2.5,-1.7])linear_extrude(height=1.7)square(size=[14.6,2.5], center=false);
+}
+
+// rpi();
