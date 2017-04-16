@@ -52,19 +52,17 @@ module pcb()
 
     difference()
     {
-        // color("Navy")
         polygon(rpiMainPolygon);
-        lcdWholes();
+        lcdHoles();
     }
 }
 
-module lcdWholes()
+module lcdHoles()
 {
-    rpiWholesDrill = 1.4;
-        translate([3,2.75])circle(rpiWholesDrill,$fn=20);
-        translate([3,86.75])circle(rpiWholesDrill,$fn=20);
-        translate([118,86.75])circle(rpiWholesDrill,$fn=20);
-        translate([118,2.75])circle(rpiWholesDrill,$fn=20);
+    dimLcdHoles=[[3,2.75],[3,86.75],[118,86.75],[118,2.75]];
+        for (i=dimLcdHoles) 
+            translate([i[0],i[1]])circle(r=1.4,$fn=20);
+    
 }
 
 // lcd5inch();
