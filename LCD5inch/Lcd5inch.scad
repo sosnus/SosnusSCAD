@@ -3,10 +3,10 @@
 
 module lcd5inch()
 {
-    dt=0.005;
-    color("Navy")   linear_extrude(height = 2)    pcb();
+    dt=0.01;
+    color("Navy")   linear_extrude(height = 2)    _pcb();
     color("Silver") translate([0,0,2]) linear_extrude(height = 4-dt) screen();
-    color("blue")   linear_extrude(height = 6)    ekran();
+    color("Navy")   linear_extrude(height = 6)    ekran();
     color("green") linear_extrude(height = 6+dt)  textScreen();
 }
 
@@ -42,7 +42,7 @@ module ekran()
     polygon(ekranPolygon);
 }
 
-module pcb()
+module _pcb()
 {
         rpiMainPolygon =
     [
