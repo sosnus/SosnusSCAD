@@ -12,7 +12,7 @@ module Connector402(i, angle)
     color("gray")_pin(i, angle);
 }
 
-plastic_color = [245/255, 249/255, 201/255];
+plastic_color = [245/255/1.5, 249/255/1.5, 201/255/1.5];
 
 module _body(i)
 {
