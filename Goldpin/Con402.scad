@@ -14,45 +14,40 @@
 ///    " 1" - reverse right angle
 module Connector402(i, angle)
 {
-    _body(i);
-    _pin(i, angle);
+    color("red")_body(i);
+    color("gray")_pin(i, angle);
 }
+
+    plastic_color = [245/255, 249/255, 201/255];
+    // color(plastic_color) {}
+    // points=[[2.9,0],[2.9,11.5],[1.54,11.5],[1.54,3.3],[-2.9,3.3],[-2.9,0]];
 
 module _body(i)
 {
-    plastic_color = [245/255, 249/255, 201/255];
-    points=[[2.9,0],[2.9,11.5],[1.54,11.5],[1.54,3.3],[-2.9,3.3],[-2.9,0]];
-    _bottom=[[2.9,0],[2.9,11.5],[1.54,11.5],[1.54,3.3],[-2.9,3.3],[-2.9,0]];
-    _top=[[2.9,0],[2.9,11.5],[1.54,11.5],[1.54,3.3],[-2.9,3.3],[-2.9,0]];
+    _bottom=[[2.9,0],[2.9,3.3],[-2.9,3.3],[-2.9,0]];
+    _top=[[2.9,3.3],[2.9,11.5],[1.54,11.5],[1.54,3.3]];
 
+     linear_extrude(2.54*i) polygon(points=_top);
+     difference()
+     {
+     translate([0, 0,-1.27]) linear_extrude(2.54*(i+1)) polygon(points=_bottom);
+     for (i=[0:i]) translate([0, 0, 2.54 * i])cube([6,2,1], center = true);
+     }
 
-    color(plastic_color) {
-        
-            difference()
-        {
-            translate([0, 0,-1.27]) linear_extrude(2.54*i) polygon(points=points);
-for (i=[0:i-1]) 
-{
-    translate([0, 0, 2.54 * i])
-    {
-        difference()
-        {
-            cube([6,2,1], center = true);
-        }
-    }
 }
+
+
 // wycięcia na końcach
          //   translate([1, 3.3, 2.54 * i - 2.54]) cube([6,10,2]);
          //    translate([1, 3.3, -2])cube([6,10,2.01]);
-}
-    }
+
+    
 // goldpin(i, angle);
 
-}
 
 module _pin(i, angle)
 {
-    for (i=[0:i-1]) 
+    for (i=[0:i]) 
     {
 
 translate([0, 0, 2.54 * i])
@@ -68,3 +63,28 @@ translate([0, 0, 2.54 * i])
 
 // pin(10,0);
 Connector402(10,1);
+
+
+
+/*
+
+module any()
+{
+
+    
+            difference()
+        {
+            translate([0, 0,-1.27]) linear_extrude(2.54*i) polygon(points=points);
+for (i=[0:i-1]) 
+{
+    translate([0, 0, 2.54 * i])
+    {
+        difference()
+        {
+            cube([6,2,1], center = true);
+        }
+    }
+}
+        }
+
+        */
