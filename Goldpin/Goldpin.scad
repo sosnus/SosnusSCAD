@@ -14,14 +14,13 @@ module pin()
             {
                 translate([0,0,5])tempere();
                 translate([0,0,-5])mirror([0,0,1])tempere();
-               echo("<h2>heavy rendering enabled</h2>");
+                echo("<b>heavy rendering enabled</b>");
                 // echo("<h2><font color=red>heavy rendering enabled</font></h2>");
             }
             else
             {
                 //  echo("<h2><font= \" red \" >heavy rendering enabled</h2></font>");
-               echo("<h2>heavy rendering disabled</h2>");
-
+               echo("<b>heavy rendering disabled</b>");
             }
         }
     }
