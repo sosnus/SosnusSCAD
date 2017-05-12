@@ -12,36 +12,49 @@
 ///    " 0" - straight
 ///    "-1" - right angle
 ///    " 1" - reverse right angle
-module pin(i, angle)
+module Connector402(i, angle)
+{
+    _body(i);
+    _pin(i, angle);
+}
+
+module _body(i)
 {
     plastic_color = [245/255, 249/255, 201/255];
     points=[[2.9,0],[2.9,11.5],[1.54,11.5],[1.54,3.3],[-2.9,3.3],[-2.9,0]];
-    
+    _bottom=[[2.9,0],[2.9,11.5],[1.54,11.5],[1.54,3.3],[-2.9,3.3],[-2.9,0]];
+    _top=[[2.9,0],[2.9,11.5],[1.54,11.5],[1.54,3.3],[-2.9,3.3],[-2.9,0]];
+
+
     color(plastic_color) {
         
             difference()
         {
+            translate([0, 0,-1.27]) linear_extrude(2.54*i) polygon(points=points);
 for (i=[0:i-1]) 
 {
     translate([0, 0, 2.54 * i])
     {
         difference()
         {
-            translate([0, 0,-1.27]) linear_extrude(2.54) polygon(points=points);
             cube([6,2,1], center = true);
         }
     }
 }
-
-            translate([1, 3.3, 2.54 * i - 2.54]) cube([6,10,2]);
-             translate([1, 3.3, -2])cube([6,10,2.01]);
+// wycięcia na końcach
+         //   translate([1, 3.3, 2.54 * i - 2.54]) cube([6,10,2]);
+         //    translate([1, 3.3, -2])cube([6,10,2.01]);
 }
     }
+// goldpin(i, angle);
 
 }
 
-module goldpin(i, angle)
+module _pin(i, angle)
 {
+    for (i=[0:i-1]) 
+    {
+
 translate([0, 0, 2.54 * i])
 {
 
@@ -49,7 +62,9 @@ translate([0, 0, 2.54 * i])
         if(angle != 0)color("gray") rotate([0, 0, 90])
          translate([-2.54, -2.5*angle, 0]) cube([0.64,2.4+3.3,0.64], center = true);
 }
+    }
 
 }
 
-pin(10,0);
+// pin(10,0);
+Connector402(10,1);
